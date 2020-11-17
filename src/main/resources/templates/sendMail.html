@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Send Mail</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+</head>
+
+<body>
+	<div class="container">
+		<div class="content">
+
+			<form class="form-horizontal" th:action="@{/sendMail}" th:object="${sendMailForm}" method="POST"
+				enctype="multipart/form-data">
+				<fieldset>
+					<legend>Simple SpringMail</legend>
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="to">To</label>
+						<div class="col-md-4">
+							<input id="to" name="to" type="email" th:field="*{to}" placeholder="mail@example.com"
+								class="form-control input-md" required="" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="subject">Subject</label>
+						<div class="col-md-4">
+							<input id="subject" name="subject" th:field="*{subject}" type="text" placeholder="Hi "
+								class="form-control input-md" required="" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="body">Body</label>
+						<div class="col-md-4">
+							<textarea class="form-control" id="body" name="body" rows="10" cols="30"
+								th:field="*{body}">Test send spring mail </textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="collage">Attachments</label>
+						<div class="col-md-4">
+							<input id="collage" name="collage" class="input-file" type="file" multiple="multiple" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 control-label" for="submit"></label>
+						<div class="col-md-4">
+							<input value="Send" type="submit" name="submit" class="btn btn-primary" />
+						</div>
+					</div>
+
+				</fieldset>
+			</form>
+		</div>
+	</div>
+</body>
+
+</html>
